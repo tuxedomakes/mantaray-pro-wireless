@@ -146,8 +146,8 @@ We designed this keyboard to be a platform for creativity.
 
 ## ❤️ Support ❤️
 
-If you liked this project, please consider [buying me a coffee ☕](https://www.paypal.com/ncp/payment/S29DUSN2UKD4N). Your contributions allow me to continue creating and sharing open-source projects like this one!
+TODO: add support links to ko-fi, tindie, and website
 
 ## Disclaimer
 
-This is a DIY electronics kit that requires soldering and assembly. While we provide a comprehensive build guide, purchasers should be comfortable with or willing to learn basic soldering. Due to the DIY nature of this product, returns cannot be accepted once assembly has begun.
+This is a DIY electronics kit that requires soldering and assembly. While we provide a comprehensive build guide, purchasers should be comfortable with or willing to learn basic soldering. This project includes working with LiPo batteries. Know about the risk of improper battery usage before you begin. Due to the DIY nature of this product, returns cannot be accepted once assembly has begun.
