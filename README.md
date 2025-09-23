@@ -10,144 +10,182 @@ Firmware notes:
 
 BEGIN DOCUMENTATION
 
-# Mantaray Pro Wireless
 
-*Ergonomic. Compact. Portable. Hackable. Damn.*
+# Mantaray Pro Wireless DIY Edition: Build Guide
 
-TODO: Add KB image here
+Welcome, and congratulations on starting your Mantaray Pro Wireless build! This guide will walk you through every step of the assembly process. Building a keyboard is a uniquely rewarding experience, and we're here to make it as smooth and enjoyable as possible.
 
-## Introduction
+**Estimated Build Time:** 1-3 hours  
+**Difficulty:** Intermediate  
 
-If you've found your way here: congratulations! Your desk is about to get a serious upgrade.
+---
 
-The Mantaray Pro Wireless is a unbody, split-ergonomic keyboard designed for a comfortable, flexible typing experience. Inspired by feedback on my open-source unibody wired Mantaray keyboard, the Mantaray Wireless Pro version is enhanced with split wireless freedom, dual displays, and a focus on hackable modularity and future upgrade paths (more on that later).
+## Before You Begin: The Golden Rule
 
-This board comes in two versions: fully assembled, and a DIY Edition (kit).
-- The assembled version is exactly what it sounds like - the keyboard is fully assembled and ready to use (note: if you opted to not add switches and keycaps with your purchase, you will need to "install" these. Don't worry, the keyboard is hot-swappable, making installation a breeze!)
-- The DIY Edition kit is perfect for hobbyists and first-time builders alike. Our comprehensive build guide makes the assembly process as simple as possible. Please read through the build guide before ordering to ensure you're comfortable with the build process.
+We know you're excited to get started, but please read this guide in its entirety before touching any components. Some steps require specific procedures and careful attention to detail. Understanding the full process beforehand will save you time and prevent potential mistakes. Trust us on this one!
 
-## Key Features
+---
 
-* **Wireless Freedom:** Powered by ZMK firmware, wireless flexibility is included out of the box.
-* **Insane Battery Life:** Go for weeks, even months, on a single charge. Expect up to **20 days** on the main left half and **3 months** on the right half with the included 200mAh batteries. Battery life will vary depending on usage.
-* **Dual `nice!view` Displays:** Two crisp, power-sipping MIP displays give you critical info at a glance: current layer, connectivity status, battery levels, and more.
-* **Hackable & Modular:** Exposed I2C headers on the PCB let you add new functionality like a scroll wheel, trackball, or macro pad to your board. The platform is open for you to design and build your own creations. We have some exciting features planned for the future that will utilize this functionality, so be sure to sign up for our newsletter (no spam, no BS, just awesome updates when we have something new to share).
-* **Travel Ready:** A built-in battery cutoff switch ensures the keyboard won't wake up and start typing from inside your backpack.
-* **Limitless Mounting Options:** Four threaded inserts on the base allow you to mount the keyboard to anything you can imagine - tripods, MagSafe-compatible stands, or custom tenting legs.
-* **Low-Profile Ergonomics:** A column-staggered layout promotes natural hand and wrist posture, all housed in a sleek case designed for low profile Kailh Choc V1 switches and keycaps.
-* **Hot-Swappable:** No soldering required for switch swaps! Easily install and experiment with different Kailh Choc V1 switches to find your perfect feel.
-* **Customization Without Code:** ZMK Studio support allows you to remap keys and create macros through a powerful web-based UI, with no coding required. If you want more control, dive into the ZMK firmware docs to customize your keeb.
+## Part I: Preparation
 
-# DIY Edition
-<details>
- <summary>
-  DIY Edition
- </summary>
- ## What's in the Box?
+### 1. Gather Your Tools
 
-* 1 x Mantaray Pro Wireless PCB Set
-* 1 x 3D Printed Case + Plate Set
-* 52 x Kailh Choc Hot-Swap Sockets
-* 2 x `XIAO nRF52840 Plus` Wireless Controllers
-* 2 x `nice!view` MIP Displays
-* 2 x Rechargeable LiPo Batteries (200mah, 402030)
-* All necessary diodes, screws, and standoffs for assembly
-* 4 x Non-slip Silicone Rubber Feet
-* Note: The diodes, battery connector, and power slider are already soldered for you.
+A good build starts with the right tools. Here’s what you’ll need to have on hand:
 
-## What You'll Need to Complete Your Build
+**Required:**
+- Soldering Iron (a temperature-controlled model is highly recommended)
+- Solder (low-temp, leaded solder like 63/37 is recommended for ease of use)
+- Flush Cut Pliers / Snips
+- Kapton Tape (or other heat-resistant tape)
+- Tweezers  
 
-This is a DIY kit. You will need to source the following components:
+**Recommended:**
+- Solder Wick or a Solder Sucker (for fixing mistakes)
+- Multimeter (to check for continuity as you go)
+- A well-lit workspace
 
-* **52 x Kailh Choc V1 Switches:** Choose your preferred type (e.g., Red, Brown, White).
-* **52 x Kailh Choc V1 Keycaps.** Be sure to get caps that utilize choc spacing (18mm x 17mm). MX spaced caps (19mm x 19mm) are not compatible.
-* **Soldering Iron & Solder:** Required for soldering controllers, displays, and sockets.
-* **Basic Tools:** A small screwdriver, flush cutters, and (optionally) tweezers.
+---
 
-## Build Guide
+## Part II: PCB Assembly
 
-TODO: Add link to video guide on YouTube
+### 2. Soldering the Microcontrollers (XIAO nRF52840 Plus)
 
-**Step 1: Solder Controllers**
+This is the most critical step. The microcontrollers are the brains of your keyboard. Take your time, work carefully, and you'll do great.
 
-NOTE: Before you install your microcontroller, it would be wise to test that it works. While we do test the microcontrollers before shipping them to you, once they're soldered to the board they are time consuming to remove if something goes wrong (if using a hotplate and low-temperature solder, this process is easier).
+⚠️ **Important Cautions:**
+- Alignment is key. The microcontroller uses castellated pads, so it must be perfectly centered on the PCB pads.
+- Use low heat. A low-temperature solder and a conservative iron temperature will prevent damage to the sensitive components.
+- BE CAREFUL around the small black power switch on the PCB. Applying heat near it or touching it with your iron can damage it permanently.
 
-TODO: add assembly step images
+**Procedure:**
+1. **Identify Left & Right:** Your kit includes a Left (L) and Right (R) PCB, and a corresponding Left (L) and Right (R) microcontroller. The firmware is side-specific, so it's crucial to match them correctly.
+2. **Position the Left Controller:** Place the left PCB on your work surface with the bottom side facing up (the side with the QR code). Place the left microcontroller onto its silkscreen outline.
+3. **Align Perfectly:** Look closely at the castellated pads on the edge of the microcontroller. Align them so they are perfectly centered over the gold pads on the PCB. You should see an equal amount of the PCB pad on either side of each microcontroller pad.
+4. **Tape it Down:** Once aligned, use a small piece of Kapton tape to hold the microcontroller firmly in place. This prevents it from shifting while you work.
+5. **Tack Solder:** Solder just one pad on one side of the microcontroller. Then, check the alignment again. If it's shifted, simply re-melt that single solder joint and nudge the controller back into position.
+6. **Secure the Other Side:** Once you're happy with the alignment, solder one pad on the opposite side to lock it in place. You can now carefully remove the tape.
+7. **Finish Bottom Soldering:** Carefully solder the remaining castellated pads. Your goal is a strong, clean connection for each pad. Ensure no solder has "bridged" or accidentally connected two pads together.
+8. **Solder Top Battery Pads:** Flip the board over to the top side. You will see cutouts where the microcontroller sits underneath. Carefully solder the battery pads on the microcontroller through these cutouts to the plated holes on the PCB. Ensure the positive (+) and negative (-) pads have a secure connection.
+9. **Repeat for the Right Side:** Follow the exact same procedure (steps 2–8) for the right PCB and right microcontroller.
 
-**Step 2: Solder Hotswap Sockets**
+Give yourself a pat on the back. You just completed a precision soldering job!
 
-Place the hotswap sockets on the front of the PCB and solder them from the back. This step is straightforward but requires patience.
+---
 
-TODO: add assembly step images
+### 3. Installing the Hotswap Sockets
 
-**Step 3: Solder the Displays**
+Now for something a bit more relaxing. We'll install the sockets that allow you to change your switches anytime you want.
 
-**Be sure to solder the displays as straight as possible**, the tolerances on the top case are very tight, and your display needs to be positioned precicely. Seriously, take your time on this step.
+- **Orientation is Important:** Look at a hotswap socket. One side is square, while the other is chamfered. The white silkscreen outline on the PCB matches this shape.
+- **Place and Solder:** Place a hotswap socket onto the PCB, matching its shape to the silkscreen outline. Solder both metal tabs to the PCB pads, ensuring the solder flows nicely to create a secure connection.  
+  [TODO: Image showing the correct orientation of a hotswap socket on the PCB]
+- **Repeat:** Continue this process for all 26 sockets on the left PCB, and all 26 sockets on the right PCB.
 
-Solder the headers for your two `nice!view` displays. To maintain a low profile and protect your battery from punctures, solder the bottom of the headers flush to the bottom of the PCB. Using some tape to hold things in place is helpful here. Once you have soldered all 5 header pins in place, remove the black plastic piece that held the headers together (if you fail to do so, the display will not sit flush on the PCB. This step is required).
+---
 
-With the plastic spacer removed, place your display onto the header pins and solder them from the top. You ensured proper alignment, right? Just checking. With the display soldered, use some flush cutters to cut those headers as flush as possible.
+### 4. Installing the nice!view Displays
 
-TODO: add assembly step images
+This step requires precision, but we'll break it down. The goal is to mount the display perfectly flush and vertical.
 
-**Step 4: Test that everything works**
+⚠️ **Critical Note:** The display pins must not protrude from the bottom of the PCB. The battery will sit directly underneath, and any protruding pins could puncture the battery, or cause a dangerous short circuit.
 
-Your hotswap sockets, display, and microcontroller are in place. Now is a good time to pop in some switches and ensure that the keyboard is working. Connect your PCB to a computer using a USB cable (it's recommended to avoid using the battery just yet), and verify that your display works, and that keypresses are being recognized (you may need to pair your keyboard via bluetooth. See bluetooth pairing section for instructions on completing this process). Once you've confirmed everything is working, remove all your switches, then proceed to the next step.
+**Procedure (Start with the Left PCB):**
+1. **Tape the Bottom:** Firmly press a piece of Kapton tape over the 5 display pin holes on the bottom of the PCB. This acts as a stopper for the pins.
+2. **Prepare the Header Pins:** Grab one of the 5-pin headers. Using pliers or tweezers, push the black plastic spacer all the way to the top of the pins. When you hold the end of the pins vertically on a table, all 5 pins should touch the surface evenly. This ensures they are all the same length. If they aren’t adjust them and make it so.
+3. **Insert the Pins:** From the top side of the PCB, insert the 5 pins into the display holes. The tape on the bottom will stop them from going through too far.
+4. **Tack & Align:** Solder just one of the outer pins. Use a minimal amount of solder. Now, check that the row of pins is perfectly vertical and not leaning. If it is, reheat the joint and adjust.
+5. **Check the Bottom:** Flip the PCB over. Confirm that no metal pin is poking through the tape. If one is, you must reheat the joints and reseat the pins until they are all flush.
+6. **Solder the Top:** Once confirmed flush, solder the remaining 4 pins from the top. Again, use just enough solder to form a good joint. Too much solder will prevent the display from sitting flat.
+7. **Solder the Bottom (Optional but Recommended):** Remove the tape from the bottom. To ensure the best connection, apply a tiny amount of solder to each pin-pad joint on the bottom. The goal is a flat, smooth joint with no sharp points.
+8. **Remove the Spacer:** The black plastic spacer is no longer needed. Use tweezers or small pliers to gently wiggle it off the pins.
+9. **Trim the Pins:** Place the nice!view display onto the pins. Mark where the top of the display's PCB meets the pins. Remove the display and use your flush cutters to trim the pins at your mark. The pins must not extend past the top of the display.  
+   [TODO: Image showing how to mark and trim the display pins]
+10. **Final Mount & Solder:** Place the display back onto the trimmed pins. Ensure it sits flat and is aligned parallel to the top and side edges of the PCB. Now, carefully solder each of the 5 pins to the display.  
+    ⚠️ **Heat Warning:** Solder one pin at a time and allow the display to cool for a few seconds between each pin to avoid heat damage.
 
-TODO: add assembly step images
-TODO: add bluetooth pairing section reference
+**Repeat for the Right Side.**
 
-**Step 5: Assemble the Case**
+Whew, the hard parts are officially over. You’re on the home stretch now!
 
-Install the head set inserts into the bottom plate now. Thee are 5 located on the inside of the bottom case that are used to mount the PCB, and 4 on the bottom that are used to attach mounting and tenting accessories. You can use a soldering iron with a small tip for this. I've found a temperature of ~420 degrees fahrenheit works well.
+---
 
-Screw the fully assembled PCB into the case using the provided M2 screws. Place the top case over the PCB, ensuring the displays align with their cutouts. The top case uses a snap fit to secure it in place, so take your time and firmly (but gently) press on all sides of the top case to snap it to the bottom case.
+## Part III: Case Assembly
 
-**Step 6: Install Switches and Keycaps**
+### 5. Installing the Heat-Set Inserts
 
-Carefully press your Kailh Choc V1 switches into the hotswap sockets. Watch for bent pins. Once all switches are installed, add your keycaps.
+These brass inserts provide durable mounting points for your PCB and future accessories.
 
-TODO: add assembly step images
+1. **Set Your Iron:** Set your soldering iron to 410°F / 210°C. Make sure the tip is clean.
+2. **Position the Insert:** Use tweezers to place an insert onto the tip of your iron. The tapered end should be facing away from the iron.
+3. **Press it in:** Align the insert with one of the mounting holes in the 3D printed case. Gently and vertically press the iron down. The heat will melt the plastic, allowing the insert to sink into place.
+4. **Hold and Remove:** Once the insert is flush with the surface, use your tweezers to hold it in place and pull your soldering iron straight out. This prevents the insert from coming out with the iron.
+5. **Repeat:** Install all inserts:
+   - 5 inserts on the inside of each bottom case half (for the PCB).
+   - 4 inserts on the very bottom of each case half (for tenting accessories and mounts).
 
-**Step 7: Connect Batteries & Flash Firmware**
-WARNING: Take this seriously. Wrong battery polarity can, at best, brick your PCB or microcontroller. At worst, it can cause a fire or explosion. Be absolutely sure the polarity of your battery is correct before inserting it. Refer to the image below for the expected polarity of the battery.
+---
 
-Connect the LiPo batteries to the battery connector on the PCB.
+### 6. Testing Time!
 
-TODO: add assembly step images
-TODO: add more safety information and warning callouts
+It's time for a quick check to make sure everything is working before final assembly.
 
-## Firmware
+- Plug a USB-C cable into your computer and the other end into the XIAO microcontroller on the left PCB. The display should power on and show an image.
+- Unplug the left side and test the right side in the same way.
 
-The Mantaray Pro Wireless runs on the powerful open-source ZMK firmware.
+If the displays light up, you're golden! If not, don't panic. Carefully re-check all your solder joints, especially for the microcontroller and display.
 
-**How to Flash:**
-1.  Download the pre-compiled `.uf2` firmware file from this repository.
-2.  Connect one half of the keyboard to your computer via USB-C.
-3.  Enter the bootloader by double-tapping the "Reset" button on the `nice!nano` controller.
-4.  A removable drive named "NICENANO" should appear on your computer.
-5.  Drag and drop the firmware file onto the removable drive.
-6.  The keyboard will reboot with the new firmware. Repeat for the other half.
+---
 
-**Customization:**
-For easy keymap customization without any coding, visit [ZMK Studio](https://studio.zmk.dev/). For advanced configuration, you can fork the ZMK firmware on GitHub and build it yourself.
+### 7. Battery Installation
 
-## A Playground for Hackers
+🚨 **DANGER: READ THIS SECTION 3 TIMES** 🚨  
+LiPo batteries can be dangerous and must be handled with the utmost care. The polarity (+ and -) of battery wires is **NOT STANDARDIZED**. Connecting a battery with reversed polarity can destroy your keyboard, cause a fire, and lead to serious injury or worse. **YOU ARE RESPONSIBLE FOR VERIFYING POLARITY.**
 
-We designed this keyboard to be a platform for creativity.
+**Procedure:**
+1. **SWITCH OFF:** Ensure the power switch on the PCB is in the OFF position (pushed down, away from the USB port).
+2. **VERIFY POLARITY:** Look at the battery connector on your PCB. It is marked with a **+**. Now look at the wires coming from your battery's JST connector. The **RED wire (+) MUST align with the + mark on the PCB.**
+3. **IF POLARITY IS WRONG:** You must fix it before plugging it in.  
+   - **Option 1 (Preferred):** Use tweezers to carefully lift the plastic tabs on the JST connector and pull out the metal crimps. Re-insert them in the correct orientation. Work on one wire at a time. NEVER let the exposed positive and negative wires touch.  
+   - **Option 2:** Carefully cut, swap, and re-solder the wires. Insulate each connection thoroughly with heat shrink. NEVER let the exposed positive and negative wires touch.
+4. **Connect and Test:** Once you have triple-checked the polarity, plug the battery into the PCB. Flip the power switch to the ON position. The display should turn on.
+5. **SWITCH OFF AGAIN:** Turn the power switch back to the OFF position for final assembly.
+6. **Repeat for the right side.**
 
-* **Magnetic I2C Port:** The magnetic connector allows you to easily attach and detach I2C-compatible modules. We will be releasing official modules like trackballs and scroll wheels, but we encourage you to design and share your own!
-* **Toggleable Pull-up Resistors:** A DIP switch on the bottom of the board enables or disables the I2C pull-up resistors. This ensures maximum compatibility with any module you might use—whether it's your own DIY creation or an official one.
-* **Mounting Points:** The six threaded inserts on the base are your canvas. Design and 3D print your own tenting legs, mount the keyboard on a tripod, or attach it to a VESA mount.
-</details>
+---
 
+### 8. Final Assembly
 
+1. **Place the Battery:** Take the left bottom case and place the battery into the dedicated battery slot. The wires should route through the small cutout.
+2. **Install Battery Cover:** Place the plastic battery protection cover over the battery and press it firmly into place until it is fully seated. It has a cutout that matches the orientation of the battery slot.
+3. **Insert the PCB:** Insert the PCB into the case at an angle, seating the power switch side first. This is necessary to clear the switch housing.  
+   [TODO: Image showing the angled insertion of the PCB into the case]
+4. **Secure the PCB:** Align the PCB mounting holes with the heat-set inserts. Secure the PCB using the five M2 screws. Do not overtighten.
+5. **Repeat for the right side.**
 
+---
 
-## ❤️ Support ❤️
+## Part IV: Finishing Touches
 
-TODO: add support links to ko-fi, tindie, and website
+### 9. Attach the Top Case
+Take the top case/plate for each side and carefully align it over the bottom case. It's a tight snap-fit, so work your way around the edges, gently pressing down until it's fully seated.
 
-## Disclaimer
+### 10. Apply Rubber Feet
+Flip the keyboard over. Apply four of the adhesive non-slip rubber feet to the designated spots on the bottom of each half.
 
-This is a DIY electronics kit that requires soldering and assembly. While we provide a comprehensive build guide, purchasers should be comfortable with or willing to learn basic soldering. This project includes working with LiPo batteries. Know about the risk of improper battery usage before you begin. Due to the DIY nature of this product, returns cannot be accepted once assembly has begun.
+### 11. Install Switches
+Gently press your Kailh Choc V1 switches through the top plate and into the hotswap sockets. Before installing each switch, check to ensure its two pins are straight. If they're bent, gently straighten them before pressing the switch in.
+
+### 12. Install Keycaps
+Press your keycaps firmly onto the switch stems. This is the final, satisfying step!
+
+---
+
+# You're Done!
+
+Congratulations! You've successfully built your Mantaray Pro Wireless keyboard. Take a moment to admire your work. We hope you love the feel of a keyboard built with your own two hands.
+
+**Next Steps:** To learn how to use your new keyboard, connect to your devices via Bluetooth, and customize your layout, please refer to the **Mantaray Pro Wireless User Manual** (TODO: add link here).
+
+---
+
+**Happy typing!**
