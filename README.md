@@ -191,3 +191,8 @@ Congratulations! You've successfully built your Mantaray Pro Wireless keyboard. 
 ---
 
 **Happy typing!**
+
+---
+
+# Under what license is this released?
+Hardware design files, including electronics and mechanical files, are released under OHL CERN v2-S. Check the LICENSE file for full details.
