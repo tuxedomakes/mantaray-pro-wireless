@@ -88,7 +88,7 @@ You can use the ZMK Studio web app to easily remap your keys, add new layers, an
 
 Common Issues and Solutions:
 
-Keyboard Won't Connect
+### Keyboard Won't Connect
 
 * Check that the keyboard is powered on.  
 * Ensure the battery is charged.  
@@ -98,6 +98,15 @@ Keyboard Won't Connect
 * Move the keyboard closer to your device.  
 * Avoid placing large metal objects between the keyboard and your device.  
 * Check for other wireless devices that may interfere with the signal. Wireless dongles and other Bluetooth devices may be the culprit.
+
+### ZMK Studio Won't Connect
+
+If ZMK Studio fails to connect to your keyboard, make sure:
+
+- **The left half is powered off** via the power switch on the side of the unit
+- **The left half is plugged into your computer** via USB-C
+- **The keyboard is not connected to your computer via Bluetooth** — disconnect or forget "Mantaray Pro W" in your Bluetooth settings, or temporarily turn off Bluetooth on your computer
+- **You are using Chrome or Edge** — Firefox and Safari do not support the WebSerial API required by ZMK Studio
 
 ## 8\. Safety and Maintenance
 
