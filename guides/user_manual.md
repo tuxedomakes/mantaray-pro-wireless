@@ -47,7 +47,7 @@ Note: This manual is not an assembly guide for the Mantaray Pro Wireless DIY Edi
   * Bluetooth   
     * Ensure Bluetooth is enabled on the device you wish to connect to.  
     * On your device, select "Mantaray Pro W" from the list of available Bluetooth devices. Follow any on-screen prompts to complete the pairing.  
-    * **Pro Tip:** You can pair up to five different devices at a time. To switch between paired devices, simply press the corresponding L1 \+ Number key (e.g. L1 \+ 2).  
+    * **Pro Tip:** You can pair up to five different devices at a time. To switch between paired devices, simply press the corresponding L2 \+ Number key (e.g. L2 \+ 2).  
   * Wired (USB-C)  
     * Connect the left board to your computer using a USB-C cable.  
       * The keyboard will automatically switch to wired mode and begin charging.  
@@ -59,7 +59,7 @@ Note: This manual is not an assembly guide for the Mantaray Pro Wireless DIY Edi
 You can use up to 5 Bluetooth profiles at a time, and switch between them to use your keyboard on different devices.
 
 * Switching Profiles  
-  * Press L1 \+ 1-5 to select a profile
+  * Press L2 \+ 1-5 to select a profile
 
 ## 4\. Keyboard Layout and Function Keys
 
@@ -88,7 +88,7 @@ You can use the ZMK Studio web app to easily remap your keys, add new layers, an
 
 Common Issues and Solutions:
 
-Keyboard Won't Connect
+### Keyboard Won't Connect
 
 * Check that the keyboard is powered on.  
 * Ensure the battery is charged.  
@@ -98,6 +98,15 @@ Keyboard Won't Connect
 * Move the keyboard closer to your device.  
 * Avoid placing large metal objects between the keyboard and your device.  
 * Check for other wireless devices that may interfere with the signal. Wireless dongles and other Bluetooth devices may be the culprit.
+
+### ZMK Studio Won't Connect
+
+If ZMK Studio fails to connect to your keyboard, make sure:
+
+- **The left half is powered off** via the power switch on the side of the unit
+- **The left half is plugged into your computer** via USB-C
+- **The keyboard is not connected to your computer via Bluetooth** — disconnect or forget "Mantaray Pro W" in your Bluetooth settings, or temporarily turn off Bluetooth on your computer
+- **You are using Chrome or Edge** — Firefox and Safari do not support the WebSerial API required by ZMK Studio
 
 ## 8\. Safety and Maintenance
 
