@@ -47,7 +47,7 @@ Note: This manual is not an assembly guide for the Mantaray Pro Wireless DIY Edi
   * Bluetooth   
     * Ensure Bluetooth is enabled on the device you wish to connect to.  
     * On your device, select "Mantaray Pro W" from the list of available Bluetooth devices. Follow any on-screen prompts to complete the pairing.  
-    * **Pro Tip:** You can pair up to five different devices at a time. To switch between paired devices, simply press the corresponding L1 \+ Number key (e.g. L1 \+ 2).  
+    * **Pro Tip:** You can pair up to five different devices at a time. To switch between paired devices, simply press the corresponding L2 \+ Number key (e.g. L2 \+ 2).  
   * Wired (USB-C)  
     * Connect the left board to your computer using a USB-C cable.  
       * The keyboard will automatically switch to wired mode and begin charging.  
@@ -59,7 +59,7 @@ Note: This manual is not an assembly guide for the Mantaray Pro Wireless DIY Edi
 You can use up to 5 Bluetooth profiles at a time, and switch between them to use your keyboard on different devices.
 
 * Switching Profiles  
-  * Press L1 \+ 1-5 to select a profile
+  * Press L2 \+ 1-5 to select a profile
 
 ## 4\. Keyboard Layout and Function Keys
 
